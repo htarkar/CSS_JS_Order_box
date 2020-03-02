@@ -1,2 +1,2 @@
-# CSS_JS_Order_box
-###  For use in essential 2 project ###
+#    CSS_JS_Order_box
+### To use in essential 2 assignment ###
