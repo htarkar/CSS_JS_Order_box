@@ -1,0 +1,271 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius :5px;
+}
+
+body {
+  background-color: #1D1E22;
+  display: flex;
+ justify-content: center;
+  align-items : center;
+  min-height: 100vh;
+}
+
+
+/*--------------- container ------------------*/
+#container {
+  position: relative;
+  width: 600px;
+  height: 250px;
+  background-color: transparent;
+ 
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+   box-shadow: 4px 4px 10px rgba(32, 33, 37, .6), inset 4px 4px 10px rgba(0,0,0,.10),-4px -4px 10px rgba(32, 33, 37, .5), inset -4px -4px 10px rgba(0,0,0,.05);
+}
+
+
+
+/*------------------ buy button --------------------*/
+.btn {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  background-color: rgba(43,45, 49, .3);
+  display: inline-block;
+  padding: 5px 18px 5px 14px;
+  text-decoration: none;
+  color: #fff;
+  opacity: .8;
+  font-family: cursive;
+  transition: opacity .3s, box-shadow .2s;
+}
+
+.btn > i {
+  display: inline-block;
+  transition: all .7s;
+}
+
+.btn  i.fa {
+  padding-left: 10px;
+}
+
+.btn  i.text {
+  padding-right: 10px;
+}
+
+.btn:hover { 
+  background-color: rgba(43,45, 49, 1);
+}
+
+.btn:hover > i.fa {
+  transition: transform .8s;
+   transform: translateX(45px) rotate(382deg);
+}
+.btn:hover > i.text {
+  transition: transform .6s;
+    transform: translate(-19px, -2px);
+}
+
+/*@keyframes animate_btn {
+  
+}*/
+
+
+/*----------//-------- buy button ----------//----------*/
+
+
+
+
+/*----------------------- cards -------------------------*/
+.product {
+  margin-top: 20px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #2b2d31;
+  /*   #aa13d0 */
+  transition: border .2s;
+  box-shadow: 4px 4px 4px rgba(32, 33, 37, .3), inset 4px 4px 10px rgba(0,0,0,.10),-4px -4px 4px rgba(32, 33, 37, .5), inset -4px -4px 10px rgba(0,0,0,.05);
+  
+}
+
+/*-------------- checkbox -------------*/
+input[type = "checkbox"] ,
+span.checked{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+input[type = "checkbox"] {
+  opacity: 0;
+  z-index: 4;
+  cursor: pointer;
+}
+
+span.checked {
+  background-color: #312f2f;
+}
+
+span.checked::after {
+  content: "";
+  position: absolute;
+  top: 1.2px;
+  left: 6px;
+  width: 5px ;
+  height: 10px;
+  z-index: 3;
+}
+
+input[type = "checkbox"]:checked ~ .id {
+  border: 1px solid #161616;
+}
+
+
+input[type = "checkbox"]:checked ~ .icon {
+  transform: rotateX(180deg) rotateY(180deg) rotateX(180deg)  rotateY(180deg) ;
+  z-index: 1;
+}
+
+input[type = "checkbox"]:checked ~ span.checked::after {
+  
+  border: solid #aa13d0;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+input[type = "checkbox"]:checked ~  .icon > i{
+    opacity: 1;
+}
+/*--------//------ checkbox --------//-----*/
+
+/*-------------- layer ---------------*/
+.id {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  transition: transform .2s, border-radius .4s, background .7s;
+}
+
+/*----------//---- layer ----------//-----*/
+
+/*--------------------- font awesome icon ----------------------*/
+.product > .icon {
+  position: relative;
+  height: 100%;
+  z-index: -1;
+  transition: opacity .3s, transform .8s, z-index 2s;
+}
+
+.product > .icon > i.fa-motorcycle,
+                   i.fa-television,
+                   i.fa-bath  {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                color: #fff;
+                                font-size: 50px;
+                                opacity: .3;
+                                transition: opacity .3s, transform .8s;
+                              }
+
+.product:hover > .icon > i{
+  opacity: 1;
+}
+
+
+#text {
+  position: absolute;
+  bottom: 22px;
+  left: 10px;
+  width: 60%;
+  height: 30px;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: cursive;
+  font-size: 13px;
+}
+
+.product:hover {
+  border-color: #414448;
+}
+
+a > i {
+  padding-right: 5px;
+}
+
+
+/*----------------------- cards -------------------------*/
+
+/*--------------- container ------------------*/
+
+
+
+/*---------------------- counter_box--------------------*/
+#shop {
+  position: relative;
+  transform: translate(10px, -98px);
+  width: 50px;
+  height: 50px;
+  box-shadow: 4px 4px 10px rgba(32, 33, 37, .6), inset 4px 4px 10px rgba(0,0,0,.10),-4px -4px 10px rgba(32, 33, 37, .5), inset -4px -4px 10px rgba(0,0,0,.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor : pointer;
+}
+
+#shop > i {
+  color: #fff;
+  font-size: 25px; 
+}
+
+.count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(8px, -10px);
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(43,45, 49, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#count_num {
+  color: white;
+  font-family: cursive;
+  font-size: 13px;
+  transition: all .2s;
+   opacity: .5;
+}
+
+/*-------------//--------- counter_box--------//------------*/
+
+
+
+/*------------------- added style by javascript ------------------------*/
+
+.purple {
+      opacity: 1;
+      background-color: rgba(43,45, 49, 1);
+      box-shadow: 4px 4px 4px rgba(32, 33, 37, .2), inset 4px 4px 10px rgba(0,0,0,.10),-4px -4px 4px rgba(32, 33, 37, .2), inset -4px -4px 10px rgba(0,0,0,.05);
+    /* box-shadow: 4px 4px 24px 0 rgba(173,84,208, .6); */
+}
+
+/*----------//--------- added style by javascript ---------//---------------*/

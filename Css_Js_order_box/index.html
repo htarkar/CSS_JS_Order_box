@@ -1,0 +1,156 @@
+<html>
+<head>
+  <!-- font-awesome icon v--4.7 -->
+  <link rel = 'stylesheet' href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+
+  <!-- custom css -->
+  <link rel = "stylesheet" href = "style.css">
+
+</head>
+<body>
+
+  <!-- ---------------------- container ------------------------ -->
+    <div id = "container">
+
+      <!------------------- bath-card ------------------>
+      <div class = "product product_1">
+            <input type = "checkbox" class = "check" name = 'product' value = "Bath"/>
+
+          <!-- -------------- layer --------------- -->
+           <div class = "id"> </div>
+           <!-- -----//--------- layer ---------//------ -->
+
+            <span class = "checked"></span>
+            
+          <div class = "icon">
+              <i class="fa fa-bath" id = "icon" aria-hidden="true"></i>
+          </div>
+       </div>
+
+      <!-----------//-------- bath-card -------//----------->
+
+
+      <!------------------- motorcycle-card ------------------>
+      <div class = "product product_2">
+           <input type = "checkbox" class = "check" name = 'product' value = "Motocycle"/>
+
+            <!-- -------------- layer --------------- -->
+           <div class = "id"> </div>
+             <!-- -----//--------- layer ---------//------ -->
+
+            <span class = "checked"></span>
+
+          <div class = "icon">
+              <i class="fa fa-motorcycle" id = "icon" aria-hidden="true"></i>
+           </div>
+
+      </div>
+      <!-----------//-------- motorcycle-card -------//----------->
+
+
+      <!------------------- computer-card ------------------>
+      <div class = "product product_3">
+         <input type = "checkbox" class = "check" name = 'product' value = "Rocket"/>
+
+            <!-- -------------- layer --------------- -->
+           <div class = "id"> </div>
+            <!-- -----//--------- layer ---------//------ -->
+
+          <span class = "checked"></span>
+
+          <div class = "icon">
+              <i class="fa fa-television" id = "icon" aria-hidden="true"></i>
+         </div>
+      </div>
+      <!-----------//-------- computer-card -------//----------->
+
+      
+       <!-- ---------------------- buy button ------------------------ -->
+        <a href = "#" class = "btn" ><i class="fa fa-credit-card" aria-hidden="true">
+              </i> <i class = "text">Buy</i>
+        </a>
+      <!-- -----------//----------- buy button -------------//----------- -->
+
+    </div>
+    <!-- ---------//------------- container ----------------//-------- -->
+
+
+    <!-- --------------------- counter_box ----------------------- -->
+    <div id = "shop">
+      <span class = "count"><i id = "count_num">0</span>
+      <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+    </div>
+    <!-- --------------------- counter_box ----------------------- -->
+
+
+<!-- -----------------javascript -------------------->
+<script>
+  
+  var check     =  document.querySelectorAll(".check");
+  var body      =  document.querySelector("body");
+  var btn       =  document.querySelector(".btn");
+  var text      =  document.querySelector("#text");
+  var shop      =  document.querySelector("#shop");
+  var count_num = document.querySelector("#count_num");
+  var icon      = document.querySelectorAll("#icon");
+  // console.log(icon);
+
+
+  for (let i = 0; i < check.length ; i++) {
+      count = 0;
+      check[i].addEventListener("click", function() {
+
+          if(check[i].checked) {
+            nextEle = this.nextElementSibling;
+            nextEle.setAttribute("id", "added");
+            count += 1;
+
+      } else {
+
+        this.nextElementSibling.setAttribute("id", " ");
+        count -= 1;
+
+      }
+      count_num.innerHTML = count;           //show counted_num
+     
+
+      for (let j = 0; j < check.length; j ++) {
+            var next_element = check[j].nextElementSibling; // get div#id element
+            value_added = next_element.getAttribute("id");  // get id attribute value of div#id element
+
+            if(value_added == "added") {                    // if had change div#id element style
+                  next_element.style.transitionDelay = ".8s";
+                  next_element.style.transform = "scale(.65) rotate(20deg)";
+                  next_element.style.borderRadius= "50%";
+                  next_element.style.backgroundColor= "#313031";
+            }
+            else {                                            //else not
+                 next_element.style.transitionDelay = "1s";
+                 next_element.style.transform = "scale(1)";
+                 next_element.style.borderRadius= "0";
+                 next_element.style.backgroundColor= "transparent";
+            }
+           
+          
+          }
+
+      if(count != 0) {                // change buy btn style if one or more checkbox is checked
+          // console.log(btn);
+          btn.classList.add("purple");
+          count_num.style.opacity = "1";
+       }                            
+      else {                          // else not
+          btn.classList.remove("purple");
+          count_num.style.opacity = ".5";
+       }
+
+      });
+   }
+
+</script>
+<!-- --------//---------javascript -------//------------->
+
+
+</body>
+</html>
